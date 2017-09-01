@@ -1,0 +1,153 @@
+/*===========================================================================================
+	BASE
+===========================================================================================*/
+* {
+	box-sizing: border-box;
+	background: transparent;
+}
+body {
+	font-family: $f-text;
+	font-size: 14px;
+	color: #a0a0a0;
+}
+.container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+header,
+section,
+main,
+aside,
+footer {
+	width: 100%;
+	overflow: auto;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $f-heading;
+	margin: 0 0 0.5em;
+}
+a {
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+ul {
+	list-style: disc outside none;
+	margin: 0.75em 0 0.75em 1.25em;
+}
+/*===========================================================================================
+	HEADER
+===========================================================================================*/
+header {
+	padding: 1em;
+}
+header section {
+	width: 100%;
+	float: left;
+	@include bp( 769px ) {
+		width: 50%;
+	}
+	&:nth-child( 2n + 2 ) {
+		text-align: right;
+	}
+}
+/*===========================================================================================
+	NAV
+===========================================================================================*/
+nav {
+	text-align: center;
+	padding: 1em;
+	a {
+		display: inline-block;
+		font-size: 1.4em;
+		padding: 0 2.4em;
+	}
+}
+/*===========================================================================================
+	MAIN
+===========================================================================================*/
+main {
+	width: 100%;
+	float: left;
+	@include bp( 769px ) {
+		width: 70%;
+	}
+}
+main section {
+	padding: 3em;
+	border-top: 1px solid;
+	&:first-child {
+		border-top: none;
+	}
+}
+/*===========================================================================================
+	ASIDE
+===========================================================================================*/
+aside {
+	width: 100%;
+	float: right;
+	padding: 2em;
+	@include bp( 769px ) {
+		width: 30%;
+	}
+	article {
+		border: 1px solid $color1;
+		margin: 1em 0 0;
+		&:first-child {
+			margin: 0;
+		}
+		header {
+			border-bottom: 1px solid $color1;
+		}
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			margin: 0;
+		}
+	}
+	section {
+		padding: 1em;
+	}
+	section button {
+		margin: 0.5em 0 0;
+		float: right;
+	}
+}
+/*===========================================================================================
+	FOOTER
+===========================================================================================*/
+footer {
+	padding: 1em;
+	section {
+		width: 100%;
+		float: left;
+		@include bp( 769px ) {
+			width: 50%;
+		}
+		&:nth-child( 2n + 2 ) {
+			text-align: right;
+		}
+	}
+}
+/*===========================================================================================
+	ELEMENTS
+===========================================================================================*/
+button {
+	padding: 0.6em 1em;
+	border: 1px solid;
+	border-radius: 0.6em;
+	@include vendorize( transition, all .5s ease );
+	&:hover {
+		@include vendorize( transform, scale(1.1) );
+	}
+}
