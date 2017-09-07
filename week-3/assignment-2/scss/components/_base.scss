@@ -1,0 +1,61 @@
+/*===========================================================================================
+	BASE
+===========================================================================================*/
+* {
+	box-sizing: border-box;
+	background: transparent;
+}
+body {
+	font-family: $f-text;
+	font-size: 16px;
+	color: #a0a0a0;
+}
+.container {
+	width: 100%;
+	max-width: 1800px;
+	margin: 0 auto;
+}
+header,
+section,
+main,
+aside,
+footer {
+	width: 100%;
+	overflow: auto;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $f-heading;
+	margin: 0 0 0.5em;
+}
+a {
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+ul {
+	list-style: disc outside none;
+	margin: 0.75em 0 0.75em 1.25em;
+}
+/*===========================================================================================
+	ELEMENTS
+===========================================================================================*/
+button {
+	padding: 1em;
+	background: $c-black;
+	border: 1px solid;
+	color: $c-white;
+	border-radius: 0.6em;
+	@include vendorize( transition, all .5s ease );
+	&:hover {
+		@include vendorize( transform, scale(1.1) );
+	}
+}
+/*===========================================================================================
+	ELEMENTS
+===========================================================================================*/

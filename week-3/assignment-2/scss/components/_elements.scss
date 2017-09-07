@@ -1,12 +1,4 @@
 /*===========================================================================================
-	ELEMENTS
-===========================================================================================*/
-button {
-	padding: 1em;
-	background: $c-black;
-	color: $c-white;
-}
-/*===========================================================================================
 	HEADER
 ===========================================================================================*/
 .site-header {
@@ -20,21 +12,62 @@ button {
 	background: rgba( 0, 0, 0, 0.7 );
 	text-align: center;
 	padding: 10px 1em;
-	font-size: 1.25em;
+	font-size: 0.8em;
+	@include bp( 769px ) {
+		font-size: 1.25em;
+	}
+	&.small {
+		@include bp( 769px ) {
+			font-size: 1em;
+		}
+		.logo {
+			width: 40px;
+		}
+	}
 	a {
 		color: $c-white;
 		font-weight: 900;
 		text-transform: uppercase;
-		margin: 0 5%;
+		display: none;
+		font-size: 1em;
+		@include vendorize( transition, all .15s ease );
+		@include bp( 640px ) {
+			display: inline-block;
+			font-size: 0.8em;
+			margin: 0 1em;
+		}
+		@include bp( 1000px ) {
+			margin: 0 5%;
+		}
 	}
 	.phone,
-	.search {
+	.search,
+	.mobile-menu {
 		display: inline-block;
 		vertical-align: middle;
 		cursor: pointer;
+		font-size: 0.8em;
+	}
+	.mobile-menu {
+		margin: 0 1em 0 0;
+		@include bp( 640px  ) {
+			display: none;
+		}
+	}
+	.mobile-menu:before {
+		content: '\f0c9';
+		font: 1.8em/1.2 $fa;
+		color: $c-white;
 	}
 	.phone {
-		margin: 0 6% 0 0;
+		margin: 0 1em 0 0;
+		display: none;
+		@include bp( 640px ) {
+			display: inline-block;
+		}
+		@include bp( 1200px ) {
+			margin: 0 6% 0 0;
+		}
 	}
 	.phone:before {
 		content: '\f095';
@@ -43,10 +76,14 @@ button {
 	}
 	.logo {
 		display: inline-block;
-		width: 100px;
+		width: 60px;
 		vertical-align: middle;
+		margin: 0 25%;
+		@include bp( 640px ) {
+			margin: 0 5%;
+		}
 		@include bp( 769px ) {
-			display: none;
+			width: 100px;
 		}
 	}
 	.logo img {
@@ -54,9 +91,13 @@ button {
 		width: 100%;
 		height: auto;
 		margin: 0 auto;
+		@include vendorize( transition, all .15s ease );
 	}
 	.search {
-		margin: 0 0 0 6%;
+		margin: 0 0 0 1em;
+		@include bp( 1200px ) {
+			margin: 0 0 0 6%;
+		}
 	}
 	.search:before {
 		content: '\f002';
@@ -73,6 +114,18 @@ button {
 	.slide {
 		width: 100%;
 		overflow: auto;
+	}
+	.slide .mobile {
+		display: block;
+		@include bp( 640px ) {
+			display: none;
+		}
+	}
+	.slide .desktop {
+		display: none;
+		@include bp( 640px ) {
+			display: block;
+		}
 	}
 	.slide img {
 		display: block;
@@ -94,7 +147,10 @@ button {
 		text-align: center;
 	}
 	h2 {
-		font-size: 3em;
+		font-size: 2em;
+		@include bp( 769px ) {
+			font-size: 3em;
+		}
 	}
 	.items {
 		width: 100%;
@@ -106,35 +162,80 @@ button {
 		float: left;
 		background: $c-white;
 		color: $c-black;
-		margin: 0 0 40px;
+		margin: 0 0 0.6em;
 		padding: 1em;
+		@include bp( 540px ) {
+			width: calc( 50% - 0.8em);
+			margin: 0 0 0.6em 0.8em;
+		}
 		@include bp( 769px ) {
-			width: calc( 25% - 60px);
-			margin: 0 0 40px 80px;
+			width: calc( 33% - 0.8em);
+		}
+		@include bp( 1100px ) {
+			width: calc( 25% - 0.8em);
 		}
 		&:first-child {
+			@include bp( 540px ) {
+				margin: 0 0 0.6em;
+			}
+		}
+		&:nth-child( 2n + 3 ) {
+			@include bp( 540px ) {
+				margin: 0 0 0.6em;
+			}
 			@include bp( 769px ) {
-				margin: 0 0 40px;
+				margin: 0 0 0.6em 0.8em;
+			}
+		}
+		&:nth-child( 3n + 4 ) {
+			@include bp( 769px ) {
+				margin: 0 0 0.6em;
+			}
+			@include bp( 1100px ) {
+				margin: 0 0 0.6em 0.8em;
 			}
 		}
 		&:nth-child( 4n + 5 ) {
-			@include bp( 769px ) {
-				margin: 0 0 40px;
+			@include bp( 1100px ) {
+				margin: 0 0 0.6em;
 			}
 		}
 		.price {
 			display: block;
-			width: 100%;
-			text-align: right;
-			font-size: 2.6em;
+			width: 22%;
+			float: right;
+			font-size: 1.2em;
 			font-weight: bold;
 			line-height: 1;
+			text-align: right;
+			@include bp( 480px ) {
+				font-size: 1.6em;
+			}
+			@include bp( 540px ) {
+				float: none;
+				width: 100%;
+				font-size: 2.2em;
+			}
+			@include  bp( 769px ) {
+				font-size: 2.6em;
+			}
 		}
 		.title {
-			font-size: 1.3em;
+			font-size: 0.8em;
+			line-height: 1.5;
 			font-weight: bold;
-			width: 60%;
+			width: 78%;
 			float: left;
+			@include bp( 480px ) {
+				font-size: 1em;
+			}
+			@include bp( 540px ) {
+				width: 60%;
+				font-size: 1.15em;
+			}
+			@include bp( 769px ) {
+				font-size: 1.3em;
+			}
 		}
 	}
 }
@@ -156,13 +257,21 @@ button {
 		font-weight: bold;
 	}
 	.content {
-		width: 60%;
+		width: 100%;
 		float: left;
-		padding: 0 5% 0 0;
+		@include bp( 769px ) {
+			width: 60%;
+			padding: 0 5% 0 0;
+		}
 	}
 	.image {
-		width: 40%;
+		width: 100%;
 		float: right;
+		margin: 50px 0 0;
+		@include bp( 769px ) {
+			width: 40%;
+			margin: 0;
+		}
 	}
 	.image img {
 		width: 100%;
@@ -175,9 +284,100 @@ button {
 		@include vendorize( transform, rotate(5deg) );
 	}
 	.button {
-		float: right;
+		display: block;
+		margin: 0 auto;
 		font-weight: bold;
 		padding: 1em 2em;
+		@include bp( 769px ) {
+			float: right;
+		}
+	}
+}
+/*===========================================================================================
+	MORE INFORMATION
+===========================================================================================*/
+.more-information {
+	width: 100%;
+	overflow: auto;
+	background: #BEBDBD;
+	color: $c-black;
+	padding: 60px 5.5%;
+	h3 {
+		font-size: 2.6em;
+		color: $c-black;
+	}
+	p {
+		font-size: 1em;
+		margin: 0 0 1em;
+		color: $c-black;
+		font-weight: bold;
+	}
+	.content {
+		width: 100%;
+		float: left;
+		@include bp( 769px ) {
+			width: 70%;
+			padding: 0 5% 0 0;
+		}
+	}
+	aside {
+		width: 100%;
+		float: right;
+		margin: 50px 0 0;
+		@include bp( 769px ) {
+			width: 30%;
+			margin: 0;
+		}
+		.accordion-widget {
+			width: 100%;
+			max-width: 400px;
+			margin: 0 auto;
+		}
+		.item {
+			width: 100%;
+			margin: 1em 0 0;
+			&:first-child {
+				margin: 0;
+			}
+		}
+		.item.active {
+			header:after {
+				content: '-';
+			}
+			.accordion-content {
+				display: block;
+				background: $c-white;
+				overflow: auto;
+				color: $c-black;
+				padding: 0.6em;
+				border-left: 1px solid $c-black;
+				border-right: 1px solid $c-black;
+				border-bottom: 1px solid $c-black;
+			}
+			.button {
+				float: right;
+				font-weight: bold;
+			}
+		}
+		.item header {
+			background: $c-black;
+			color: $c-white;
+			font-size: 1.4em;
+			font-weight: bold;
+			padding: 0.6em 1em;
+			cursor: pointer;
+			@include vendorize( transition, all .15s ease );
+			&:after {
+				content: '+';
+				float: right;
+			}
+			&:hover {
+
+			}
+		}
+		.item .accordion-content {
+			display: none;
+		}
 	}
 }
 /*===========================================================================================
@@ -190,9 +390,12 @@ button {
 	color: $c-white;
 	padding: 1.6em 5.5%;
 	.newsletter {
-		width: 50%;
 		float: left;
-		padding: 0 1em 0 0;
+		width: 100%;
+		@include bp( 769px ) {
+			width: 50%;
+			padding: 0 1em 0 0;
+		}
 		header {
 			margin: 0 0 1em;
 		}
@@ -213,9 +416,13 @@ button {
 		float: left;
 	}
 	.input {
-		width: 35%;
 		float: left;
-		padding: 0 0 0 1%;
+		width: 100%;
+		padding: 1em 0 0;
+		@include bp( 769px ) {
+			width: 35%;
+			padding: 0 0 0 1%;
+		}
 		&:first-child {
 			padding: 0;
 		}
@@ -231,29 +438,47 @@ button {
 		}
 	}
 	.button {
-		width: 28%;
 		float: left;
 		border: none;
 		padding: 0.4em;
-		margin: 0 0 0 2%;
+		margin: 1em 0 0;
+		width: 100%;
+		@include bp( 769px ) {
+			width: 28%;
+			margin: 0 0 0 2%;
+		}
 	}
 	a {
 		color: $c-white;
 	}
 	.links {
-		width: 50%;
 		float: right;
-		padding: 0 0 0 2em;
+		width: 100%;
+		padding: 2em 0 0;
+		@include bp( 769px ) {
+			width: 50%;
+			padding: 0 0 0 2em;
+		}
 	}
 	.links nav {
-		width: 33%;
 		float: left;
-		padding: 0 0 0 2%;
+		width: 100%;
+		padding: 1em 0 0;
+		text-align: center;
+		@include bp( 769px ) {
+			width: 33%;
+			padding: 0 0 0 2%;
+			text-align: left;
+		}
 		&.thin {
-			width: 25%;
+			@include bp( 769px ) {
+				width: 25%;
+			}
 		}
 		&.social-nav {
-			width: 40%;
+			@include bp( 769px ) {
+				width: 40%;
+			}
 		}
 	}
 	.links h4 {
@@ -270,6 +495,10 @@ button {
 	}
 	.links ul li a {
 		font-weight: bold;
+		display: block;
+		@include bp( 768px, max-width ) {
+			text-align: center;
+		}
 	}
 }
 /*===========================================================================================
