@@ -1,0 +1,15 @@
+went over assignments in class.
+
+need to focus on HTML structure and naming conventions.  This is very, very important.
+
+reference:  
+	https://jquery.com/
+	check out API documentation to 
+
+reviewed javascript principles, objects, and methods to explain HOW javascript works
+	for loops
+	object.method
+	talked more about arrays and how/what they are
+
+showing how to use jQuery plugins
+	$.fn is how to extend plugins at its base.
