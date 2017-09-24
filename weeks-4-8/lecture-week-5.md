@@ -30,13 +30,8 @@ Theme basics
 		the very least a theme needs to have are a style.css & index.php.
 		Understanding how to structure your PHP
 		Adding screenshot.png to display theme picture in Appearance -> Themes
-		Getting started with loading scripts and styles
-			functions.php
-				wp_enqueue_style()
-				wp_enqueue_script()
-				https://developer.wordpress.org/reference/functions/add_theme_support/
-				add_theme_support()
-					add_theme_support('menus'), add_theme_support('post-thumbnails'), add_theme_support('widgets')
+		Template Hierarchy
+			- https://developer.wordpress.org/themes/basics/template-hierarchy/
 		Basic theme functions
 			get_header()
 			get_sidebar()
@@ -45,6 +40,13 @@ Theme basics
 			wp_footer()
 			body_class()
 			bloginfo(), get_bloginfo()
+		Getting started with loading scripts and styles
+			functions.php
+				wp_enqueue_style()
+				wp_enqueue_script()
+				https://developer.wordpress.org/reference/functions/add_theme_support/
+				add_theme_support()
+					add_theme_support('menus'), add_theme_support('post-thumbnails'), add_theme_support('widgets')
 		Templating in WordPress Themes
 			index.php
 				- how queries work on a basic level
@@ -53,15 +55,18 @@ Theme basics
 			archive.php, archive-post-type.php
 			page.php
 			single.php, single-post-type.php
+		Basic Header Functionality
+			https://developer.wordpress.org/reference/functions/wp_nav_menu/
+			wp_nav_menu( $args );
+			Theme Locations
+				register_nav_menu()
 		The Post
 			How Posts Work
 				- The Loop
 				- $args for queries
 				- get_posts(), query_posts(), new WP_Query()
 			Custom Post Types
-		Basic Header Functionality
-			wp_nav_menu( $args );
-			Theme Locations
-				register_nav_menu()
+			Taxonomies
+				https://codex.wordpress.org/Taxonomies
 		Linking to WordPress items
 			get_permalink()

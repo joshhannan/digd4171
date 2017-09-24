@@ -1,12 +1,8 @@
 <?php
+	/*
+	Template Name: Portfolio
+	 */
 	get_header();
-
-
-	$post = get_post(11);
-	var_dump( $post );
-	echo '<h1>' . $post->post_title . '</h1>';
-
-
 ?>
 <?php
 	if ( have_posts() ) :
@@ -14,9 +10,7 @@
 ?>
 		<div id="post-<?php echo $post->ID; ?>" class="post">
 			<h1><?php the_title(); ?></h1>
-			<div class="content">
-			<?php the_content(); ?>
-			</div>
+			<p>This is the portfolio page</p>
 		</div>
 <?php
 		endwhile;

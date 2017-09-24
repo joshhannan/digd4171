@@ -1,0 +1,3 @@
+<aside>
+	My Sidebar!
+</aside>
